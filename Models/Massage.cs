@@ -2,7 +2,7 @@
 
 namespace Massage.Models;
 
-public class Massage
+public class MassageV    
 {
     public int Id { get; set; }
 
