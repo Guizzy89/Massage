@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Massage.Models.MassageV>
+
+<div class="container">
+    <h1>Доступные типы массажа:</h1>
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">Описание: @item.Description</p>
+                <p class="card-text">Стоимость: @item.Price руб.</p>
+            </div>
+        </div>
+    }
+</div>
