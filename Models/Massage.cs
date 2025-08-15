@@ -62,5 +62,5 @@ public class Booking
     public virtual TimeSlot TimeSlot { get; set; }
 
     // Выбранный вид массажа
-    public virtual Massage SelectedMassage { get; set; }
+    public virtual MassageV SelectedMassage { get; set; }
 }
