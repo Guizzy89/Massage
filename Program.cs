@@ -1,4 +1,14 @@
+using Massage.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Установка строки соединения
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlite("Filename=./massage.db"));
+
+// Регистрация сервисов MVC
+builder.Services.AddControllers();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -14,7 +24,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseStaticFiles();
+app.MapControllers();
 app.UseRouting();
 
 app.UseAuthorization();
