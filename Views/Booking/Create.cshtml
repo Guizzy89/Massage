@@ -1,0 +1,34 @@
+﻿@model Massage.Models.Booking
+
+<h1>Запись на массаж</h1>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="@Model.TimeSlot.Id" />
+
+    <div class="mb-3">
+        <label for="ClientName" class="form-label">Ваше имя:</label>
+        <input type="text" asp-for="ClientName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="PhoneNumber" class="form-label">Телефон:</label>
+        <input type="tel" asp-for="PhoneNumber" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="Age" class="form-label">Возраст:</label>
+        <input type="number" min="18" max="100" asp-for="Age" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="Weight" class="form-label">Вес:</label>
+        <input type="number" step="any" min="0" max="130" asp-for="Weight" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="Notes" class="form-label">Комментарий (необязательно):</label>
+        <textarea rows="4" cols="50" asp-for="Notes" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Забронировать</button>
+</form>

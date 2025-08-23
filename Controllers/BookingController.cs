@@ -10,7 +10,6 @@ namespace Massage.Controllers
 
     public class BookingController : Controller
     {
-        public BookingController() { }
         private readonly ApplicationDbContext _context;
         public BookingController(ApplicationDbContext context)
         {
