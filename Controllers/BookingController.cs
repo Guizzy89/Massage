@@ -21,6 +21,17 @@ namespace Massage.Controllers
         {
             return await _context.Bookings.Include(b => b.TimeSlot).Include(b => b.SelectedMassage).ToListAsync();
         }
+
+        [HttpGet("SelectTime")]
+        public async Task<ActionResult<IEnumerable<TimeSlot>>> GetAvailableTimeSlots()
+        {
+            var availableTimeSlots = await _context.TimeSlots
+                .Where(ts => !ts.IsBooked)
+                .ToListAsync();
+            return Ok(availableTimeSlots);
+        }
+
+
         // POST: api/booking
         [HttpPost]
         public async Task<ActionResult<Booking>> CreateBooking(Booking booking)
