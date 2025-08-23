@@ -1,0 +1,23 @@
+﻿@model List<Massage.Models.MassageV>
+
+<div class="container py-5">
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p class="lead">Онлайн-запись на профессиональный массаж. Выбирайте удобный день и время прямо сейчас.</p>
+    <hr class="my-4">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var service in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="..." class="card-img-top img-fluid" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@service.Name</h5>
+                        <p class="card-text">@service.Description</p>
+                        <p class="fw-bold">Цена: @service.Price руб.</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
