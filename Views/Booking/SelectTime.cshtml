@@ -4,9 +4,11 @@
     <h1>Выберите удобное время для посещения салона:</h1>
     @foreach (var slot in Model)
     {
-        <a href="/booking/create?id=@slot.Id" class="btn btn-primary mt-2">
-            @slot.StartDateTime.ToString("dd/MM/yyyy HH:mm") -
-            @(slot.StartDateTime + slot.Duration).ToString("HH:mm")
-        </a>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@slot.StartDateTime.ToString("dd/MM/yyyy HH:mm") - @(slot.StartDateTime + slot.Duration).ToString("HH:mm")</h5>
+                <a href="/booking/create?id=@slot.Id" class="btn btn-primary">Выбрать</a>
+            </div>
+        </div>
     }
 </div>
