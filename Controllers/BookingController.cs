@@ -23,18 +23,18 @@ namespace Massage.Controllers
         }
 
         [HttpGet("SelectTime")]
-        public async Task<ActionResult<IEnumerable<TimeSlot>>> GetAvailableTimeSlots()
+        public async Task<IActionResult> GetAvailableTimeSlots()
         {
             var availableTimeSlots = await _context.TimeSlots
                 .Where(ts => !ts.IsBooked)
                 .ToListAsync();
-            return Ok(availableTimeSlots);
+            return View("SelectTime", availableTimeSlots);
         }
 
 
         // POST: api/booking
         [HttpPost]
-        public async Task<ActionResult<Booking>> CreateBooking(Booking booking)
+        public async Task<IActionResult> CreateBooking(Booking booking)
         {
             if (_context.Bookings.Any(b => b.TimeSlot.Id == booking.TimeSlot.Id && b.SelectedMassage.Id == booking.SelectedMassage.Id))
             {
@@ -42,7 +42,7 @@ namespace Massage.Controllers
             }
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetBookings), new { id = booking.Id }, booking);
+            return RedirectToAction(nameof(GetAvailableTimeSlots));
         }
         // PUT: api/booking/{id}
         [HttpPut("{id}")]
