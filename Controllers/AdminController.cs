@@ -33,7 +33,7 @@ namespace Massage.Controllers
 
         // POST: Admin/CreateService
         [HttpPost("CreateService")]
-        public async Task<IActionResult> CreateService(MassageV massage)
+        public async Task<IActionResult> CreateService([FromForm] MassageV massage)
         {
             if (ModelState.IsValid)
             {

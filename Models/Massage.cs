@@ -11,6 +11,7 @@ public class MassageV
     public string Name { get; set; }
 
     // Описание услуги
+    [Required]
     public string Description { get; set; }
 
     // Стоимость
