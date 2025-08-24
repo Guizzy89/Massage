@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Massage.Models.MassageV>
+
+<div class="container">
+    <h1>Управление услугами массажа</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Цена</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var massage in Model)
+            {
+                <tr>
+                    <td>@massage.Name</td>
+                    <td>@massage.Description</td>
+                    <td>@massage.Price руб.</td>
+                    <td>
+                        <a href="/admin/EditService/@massage.Id" class="btn btn-warning">Редактировать</a>
+                        <a href="/admin/DeleteService/@massage.Id" class="btn btn-danger">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/admin/CreateService" class="btn btn-primary">Создать новую услугу</a>
+</div>

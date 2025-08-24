@@ -1,0 +1,22 @@
+﻿@model Massage.Models.MassageV
+
+<h1>Создание новой услуги</h1>
+
+<form asp-action="CreateService" method="post">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Название:</label>
+        <input type="text" asp-for="Name" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="Description" class="form-label">Описание:</label>
+        <textarea rows="4" cols="50" asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="Price" class="form-label">Цена:</label>
+        <input type="number" step="any" min="0" asp-for="Price" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Создать</button>
+</form>
